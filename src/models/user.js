@@ -8,10 +8,6 @@ const UserSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    name: {
-      type: String,
-      required: true,
-    },
     role: {
       type: String,
       enum: ["admin", "patient"],

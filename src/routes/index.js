@@ -3,6 +3,7 @@ const authRouter = require("./auth");
 const patientsRouter = require("./patients");
 const doctorsRouter = require("./doctors");
 const hospitalsRouter = require("./hospitals");
+const appointmentsRouter = require("./appointments");
 const router = express.Router();
 
 /**
@@ -31,12 +32,13 @@ router.use("/doctors", doctorsRouter);
  */
 router.use("/hospitals", hospitalsRouter);
 
+/**
+ * Appointments
+ */
+router.use("/appointments", appointmentsRouter);
+
 module.exports = router;
 
 /**
  * Admins
- */
-
-/**
- * Appointments
  */
