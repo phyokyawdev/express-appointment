@@ -1,6 +1,7 @@
 const express = require("express");
 const createHttpError = require("http-errors");
 const Doctor = require("../models/doctor");
+const doctorsSchedulesRouter = require("./schedules");
 const router = express.Router();
 
 router.param("id", async (req, res, next, id) => {
@@ -39,5 +40,11 @@ router.delete("/:id", async (req, res) => {
   await req.currentDoctor.remove();
   res.status(204).send();
 });
+
+/**
+ * Doctor's Schedule
+ * - req.currentDoctor will be available inside doctorsSchedulesRouter
+ */
+router.use("/:id/schedules", doctorsSchedulesRouter);
 
 module.exports = router;
