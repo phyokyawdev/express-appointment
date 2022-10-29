@@ -55,7 +55,7 @@ module.exports = router;
  * @returns  jwt signed token
  */
 function createToken(user) {
-  const body = { _id: user._id, email: user.email };
+  const body = { _id: user._id, email: user.email, role: user.role };
   const token = jwt.sign({ user: body }, keys.jwtKey);
   return token;
 }
